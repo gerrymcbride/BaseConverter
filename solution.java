@@ -1,25 +1,30 @@
+/**
+	Program which takes in a base and converts it to base 10
+	
+	**/
+
 
 public class Solution {
 	
 	public static void main(String [] args){
 		
-		stack myStack = new stack(15);
+		stack myStack = new stack(15); // create stack of 15
 		
-		System.out.println(baseTenConvert(5,myStack, 43));
+		System.out.println(baseTenConvert(5,myStack, 43)); //convert to base 10, 5 is current base, 43 is number
 		
 	}
 	
 	public static long baseTenConvert(long currentBase, stack number, long baseNumber){
 		
-		int PowerCount = 0;
-		int count = number.top;
-		long temp;
-		long result = 0;
+		int PowerCount = 0; // counts the power-to of conversion
+		int count = number.top; // count at the top of the stack
+		long temp; // tempprary variable
+		long result = 0; // conversion result
 		
-		splitNumber(baseNumber, number);
+		splitNumber(baseNumber, number); // split number function
 		
-		while(count >= 0){
-			temp = Math.round(Math.pow(currentBase, PowerCount) * number.peekSpecific(PowerCount));
+		while(count >= 0){ // loop to work through count
+			temp = Math.round(Math.pow(currentBase, PowerCount) * number.peekSpecific(PowerCount)); // 
 			result = result + temp;
 			count--;
 			PowerCount++;
